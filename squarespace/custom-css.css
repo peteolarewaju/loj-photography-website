@@ -158,19 +158,6 @@ footer .sqs-layout{
   color:var(--gold-soft) !important;
 }
 
-/* ---------- FINE ART PROTECTION (visual deterrent) ----------
-   Stops text/image selection + drag on the licensing gallery.
-   NOTE: cannot stop screenshots. Pair with the code-injection
-   snippet in the build plan and with watermarked low-res files.
-   ADJUST the wrapper selector to your fine-art gallery. */
-.loj-fineart img,
-.loj-fineart .sqs-gallery img{
-  -webkit-user-select:none;
-  user-select:none;
-  -webkit-user-drag:none;
-  pointer-events:none;        /* blocks drag/right-click on the image itself */
-}
-
 /* ---------- SECTION RHYTHM ----------
    A little more breathing room, closer to the mockup's pacing.
    ADJUST if your template already spaces sections well. */
