@@ -1,0 +1,198 @@
+/* ============================================================
+   LOJ PHOTOGRAPHY INC. — SQUARESPACE CUSTOM CSS PACK
+   Paste into: Design > Custom CSS
+   ------------------------------------------------------------
+   HOW TO USE
+   1. Set fonts in Design > Fonts FIRST (Headings: Bodoni Moda,
+      Body: Jost). This CSS refines them; it does not replace
+      that step.
+   2. Build your colour palette in Design > Colors from the hex
+      values in the BRAND TOKENS block below.
+   3. Paste this whole file in Design > Custom CSS and Save.
+   4. Some selectors are marked ADJUST — Squarespace generates
+      its own class names per site, so you may need to tweak a
+      couple once your real sections exist. Test in preview.
+   This pack styles and refines. The native style panel + Fluid
+   Engine do the structural layout. Expect "in the spirit of"
+   the mockup, not pixel-identical.
+   ============================================================ */
+
+/* ---------- BRAND TOKENS (reference + reuse) ---------- */
+:root{
+  --bone:#F1EADC;       /* page background, warm */
+  --cream:#FBF7EE;      /* card / panel background */
+  --paper:#FAF5EA;      /* input background */
+  --sand:#E0CFAF;       /* soft accent */
+  --gold:#C6A23C;       /* primary accent (matches logo) */
+  --gold-deep:#9A7A22;  /* gold for text on light bg */
+  --gold-soft:#E4D096;  /* gold on dark bg */
+  --olive:#8C8C6A;      /* secondary accent */
+  --espresso:#322822;   /* primary text */
+  --cocoa:#5A493C;      /* secondary text */
+  --warm-grey:#7C6D5E;  /* muted text */
+  --ink:#1A1410;        /* dark sections + footer */
+  --line:#D8C9B0;       /* borders / dividers */
+}
+
+/* ---------- BASE ---------- */
+body{
+  background-color:var(--bone);
+  color:var(--espresso);
+}
+
+/* ---------- TYPE: HEADINGS (Bodoni Moda) ---------- */
+/* The high-contrast display look. Letter-spacing kept tight. */
+h1,h2,h3,
+.sqsrte-large,
+.heading-1,.heading-2,.heading-3{
+  letter-spacing:.01em;
+  font-weight:400;
+  color:var(--espresso);
+}
+h1{line-height:1.05;}
+h2{line-height:1.15;}
+
+/* Italic accent — apply by wrapping a word in <em> in headings */
+h1 em,h2 em,h3 em{font-style:italic;font-weight:400;}
+
+/* ---------- TYPE: BODY (Jost) ---------- */
+p,li,.sqsrte-small{
+  color:var(--cocoa);
+  line-height:1.6;
+}
+
+/* ---------- EYEBROW LABEL ----------
+   Small uppercase gold kicker above headings.
+   Use in a Code Block or Markdown:  <span class="loj-eyebrow">Weddings</span> */
+.loj-eyebrow{
+  display:inline-block;
+  font-family:'Jost',sans-serif;
+  font-size:.7rem;
+  letter-spacing:.34em;
+  text-transform:uppercase;
+  color:var(--gold-deep);
+  font-weight:500;
+  margin-bottom:.6em;
+}
+
+/* ---------- BUTTONS ----------
+   Pill shape, uppercase, spaced. Set shape to "Pill" in the
+   style panel too; this refines colour + spacing.
+   ADJUST: Squarespace button classes vary by version. */
+.sqs-block-button-element,
+.sqs-button-element--primary,
+a.btn{
+  border-radius:32px !important;
+  text-transform:uppercase;
+  letter-spacing:.13em;
+  font-family:'Jost',sans-serif;
+  font-weight:500;
+  font-size:.78rem;
+  padding:14px 30px !important;
+  transition:all .3s ease;
+}
+/* Primary = gold on ink */
+.sqs-button-element--primary{
+  background-color:var(--gold) !important;
+  color:var(--ink) !important;
+}
+.sqs-button-element--primary:hover{
+  background-color:var(--gold-deep) !important;
+  color:var(--cream) !important;
+}
+/* Secondary = outline gold */
+.sqs-button-element--secondary{
+  background:transparent !important;
+  border:1px solid var(--gold) !important;
+  color:var(--gold-deep) !important;
+}
+.sqs-button-element--secondary:hover{
+  background-color:var(--gold) !important;
+  color:var(--ink) !important;
+}
+
+/* ---------- LINKS ---------- */
+a{color:var(--gold-deep);}
+a:hover{color:var(--gold);}
+
+/* ---------- GALLERY IMAGE HOVER ZOOM ----------
+   Gentle zoom on portfolio images. ADJUST selector to your
+   gallery block if needed. */
+.sqs-gallery-design-grid .slide img,
+.gallery-grid-item img,
+.sqs-gallery-block-grid img{
+  transition:transform .9s cubic-bezier(.2,.8,.2,1);
+}
+.sqs-gallery-design-grid .slide:hover img,
+.gallery-grid-item:hover img,
+.sqs-gallery-block-grid .slide:hover img{
+  transform:scale(1.05);
+}
+
+/* ---------- DARK SECTIONS ----------
+   For hero, footer, wedding "Signature" tier, client area:
+   assign a section colour theme of "Dark" in the editor, then
+   this tunes it to your ink + gold. */
+.background-color-black,
+.dark-section,
+footer .sqs-layout{
+  background-color:var(--ink) !important;
+  color:var(--cream);
+}
+.background-color-black h1,
+.background-color-black h2,
+.dark-section h2{
+  color:var(--gold-soft);
+}
+
+/* ---------- "MOST BOOKED" HIGHLIGHT CARD ----------
+   For the $3,500 Signature wedding tier. Wrap that pricing
+   block and add class via a Code Block, or target its section. */
+.loj-feature{
+  background:linear-gradient(165deg,#241d18,#0f0b08) !important;
+  border:1px solid var(--gold-deep) !important;
+  border-radius:14px;
+  color:var(--gold-soft);
+}
+.loj-feature h1,.loj-feature h2,.loj-feature h3,.loj-feature p{
+  color:var(--gold-soft) !important;
+}
+
+/* ---------- FINE ART PROTECTION (visual deterrent) ----------
+   Stops text/image selection + drag on the licensing gallery.
+   NOTE: cannot stop screenshots. Pair with the code-injection
+   snippet in the build plan and with watermarked low-res files.
+   ADJUST the wrapper selector to your fine-art gallery. */
+.loj-fineart img,
+.loj-fineart .sqs-gallery img{
+  -webkit-user-select:none;
+  user-select:none;
+  -webkit-user-drag:none;
+  pointer-events:none;        /* blocks drag/right-click on the image itself */
+}
+
+/* ---------- SECTION RHYTHM ----------
+   A little more breathing room, closer to the mockup's pacing.
+   ADJUST if your template already spaces sections well. */
+.page-section{padding-top:5rem;padding-bottom:5rem;}
+
+/* ---------- FORM INPUTS ---------- */
+.form-wrapper input,
+.form-wrapper select,
+.form-wrapper textarea{
+  background-color:var(--paper) !important;
+  border:1px solid var(--line) !important;
+  border-radius:8px !important;
+  font-family:'Jost',sans-serif !important;
+  color:var(--espresso) !important;
+}
+
+/* ---------- FOOTER ---------- */
+footer{background-color:var(--ink) !important;}
+footer, footer p, footer a{color:var(--cream);}
+footer a:hover{color:var(--gold);}
+
+/* ============================================================
+   END. Remember: set fonts + colours in the native panels too;
+   this CSS refines on top of them. Test in preview before save.
+   ============================================================ */
