@@ -35,10 +35,11 @@
 }
 
 /* ---------- BASE ---------- */
-body{
-  background-color:var(--bone);
-  color:var(--espresso);
-}
+/* NOTE: text COLOUR is intentionally left to Squarespace's per-section
+   colour themes (set in Website > Styles > Colors), so light sections get
+   dark text and dark sections get light text automatically. Don't hard-code
+   body/heading/paragraph colour here — it overrides the themes and breaks
+   dark sections (e.g. the hero). */
 
 /* ---------- TYPE: HEADINGS (Bodoni Moda) ---------- */
 /* The high-contrast display look. Letter-spacing kept tight. */
@@ -47,7 +48,6 @@ h1,h2,h3,
 .heading-1,.heading-2,.heading-3{
   letter-spacing:.01em;
   font-weight:400;
-  color:var(--espresso);
 }
 h1{line-height:1.05;}
 h2{line-height:1.15;}
@@ -57,7 +57,6 @@ h1 em,h2 em,h3 em{font-style:italic;font-weight:400;}
 
 /* ---------- TYPE: BODY (Jost) ---------- */
 p,li,.sqsrte-small{
-  color:var(--cocoa);
   line-height:1.6;
 }
 
